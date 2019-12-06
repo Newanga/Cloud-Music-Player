@@ -5,13 +5,52 @@
 <html>
 <head>
 	<title>Welcome to Your Cloud Music Player</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="Assets/Css/Style.css">
 </head>
+
+<div id="mainContainer">
+
+<div id="topContainer">
+
+	<div id="navBarContainer">
+		<nav class="navBar">
+			<a href="Index.php" class="logo">
+				<img src="Assets/Images/Icons/logo.png" alt="Logo">
+			</a>
+
+				<div class="group">
+					<div class="navItem">
+						<a href="Search.php" class="navItemLink">Search
+						<img src="Assets/Images/Icons/Search.png" class="logo" alt="Search">
+						</a>
+					</div>
+				</div>
+
+				<div class="group">
+
+					<div class="navItem">
+						<a href="Browse.php" class="navItemLink">Browse</a>
+					</div>
+
+					<div class="navItem">
+						<a href="Your-Music.php" class="navItemLink">Your Music</a>
+					</div>
+
+					<div class="navItem">
+						<a href="Profile.php" class="navItemLink">Redux Dreams Lab</a>
+					</div>
+
+				</div>
+
+		</nav>
+	</div>
+
+</div>
 
 <body>
 <div id="nowPlayingBarContainer">
 
-<div id="nowPlayingBar">
+		<div id="nowPlayingBar">
 
 	<div id="nowPlayingLeft">
 		<div class="content">
