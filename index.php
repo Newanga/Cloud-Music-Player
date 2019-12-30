@@ -1,11 +1,21 @@
 <?php
+include("includes/config.php");
+
+//session_destroy(); LOGOUT
+
+if(isset($_SESSION['userLoggedIn'])) {
+	$userLoggedIn = $_SESSION['userLoggedIn'];
+}
+else {
+	header("Location: register.php");
+}
 
 ?>
 
 <html>
 <head>
 	<title>Welcome to Your Cloud Music Player</title>
-	<link rel="stylesheet" type="text/css" href="Assets/Css/Style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <div id="mainContainer">
@@ -14,14 +24,14 @@
 
 	<div id="navBarContainer">
 		<nav class="navBar">
-			<a href="Index.php" class="logo">
-				<img src="Assets/Images/Icons/logo.png" alt="Logo">
+			<a href="index.php" class="logo">
+				<img src="assets/images/icons/logo.png" alt="logo">
 			</a>
 
 				<div class="group">
 					<div class="navItem">
 						<a href="Search.php" class="navItemLink">Search
-						<img src="Assets/Images/Icons/Search.png" class="logo" alt="Search">
+						<img src="assets/images/icons/search.png" class="logo" alt="Search">
 						</a>
 					</div>
 				</div>
