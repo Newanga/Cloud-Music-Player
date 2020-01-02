@@ -110,7 +110,7 @@ body {
 }
 
 #loginText h1 {
-    color: #64ffcd;
+    color: #07d159;
     font-size: 60px;
     font-weight: bold;
 }
@@ -125,7 +125,13 @@ body {
 
 #loginText li {
     font-size: 20px;
-    padding: 6px 34px;
+    padding: 5px 30px;
     list-style-type: none;
     background: url(../Images/Icons/icons8-tick-box-30.png) no-repeat 0 0; 
+
+#inputContainer .errorMessage {
+    color: #07d159;
+    font-size: 12px;
+    display: block;
+}
 }

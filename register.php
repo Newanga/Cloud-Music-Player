@@ -1,12 +1,12 @@
 <?php
-    include("Includes/Config.php");
-    include("Includes/Classes/Account.php");
-    include("Includes/Classes/Constants.php");
+    include("includes/config.php");
+    include("includes/classes/Account.php");
+    include("includes/classes/Constants.php");
 
     $account = new Account($con);
 
-    include("Includes/Handlers/Register-Handler.php");
-    include("Includes/Handlers/Login-Handler.php");
+    include("includes/handlers/register-handler.php");
+    include("includes/handlers/login-handler.php");
 
     function getInputValue($name) {
         if(isset($_POST[$name])) {
@@ -18,18 +18,18 @@
 
 <html>
 <head>
-    <title>Welcome to Spotify</title>
+    <title>Welcome to your cloud music player</title>
 
-    <link rel="stylesheet" type="text/css" href="Assets/Css/Register.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/register.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="Assets/JS/Register.js"></script>
+    <script src="assets/js/register.js"></script>
 </head>
 <body>
 
     <?php
 
-        if(isset($_POST['signupButton'])) {
+        if(isset($_POST['registerButton'])) {
             echo '<script>
                     $(document).ready(function() {
                         $("#loginForm").hide();
@@ -54,7 +54,7 @@
         <div id="loginContainer">
 
             <div id="inputContainer">
-                <form id="loginForm" action="Register.php" method="POST">
+                <form id="loginForm" action="register.php" method="POST">
                     <h2>Login to your account</h2>
                     <p>
                         <?php echo $account->getError(Constants::$loginFailed); ?>
@@ -105,24 +105,24 @@
                     </p>
 
                     <p>
-                        <label for="email0">Confirm Email</label>
-                        <input id="email0" name="email0" type="email" placeholder="eg:RDL@gmail.com" value="<?php getInputValue('email0') ?>" required>
+                        <label for="email2">Confirm Email</label>
+                        <input id="email2" name="email0" type="email" placeholder="eg:RDL@gmail.com" value="<?php getInputValue('email0') ?>" required>
                     </p>
 
                     <p>
-                        <?php echo $account->getError(Constants::$passwordsDontMatch); ?>
-                        <?php echo $account->getError(Constants::$passwordCapitalNumbers); ?>
+                        <?php echo $account->getError(Constants::$passwordsDoNoMatch); ?>
+                        <?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?>
                         <?php echo $account->getError(Constants::$passwordCharacters); ?>
                         <label for="password">Password</label>
                         <input id="password" name="password" type="password" placeholder="your password" required>
                     </p>
 
                     <p>
-                        <label for="password0">Confirm Password</label>
-                        <input id="password0" name="password0" type="password" placeholder="your password" required>
+                        <label for="password2">Confirm Password</label>
+                        <input id="password2" name="password2" type="password" placeholder="your password" required>
                     </p>
                     
-                    <button name="singupButton" type="submit">Sign Up</button>
+                    <button type="submit" name="registerButton">SIGN UP</button>
 
                     <div class="hasAccountText">
                         <span id="hideRegister">Have an account already? Log in here.</span>

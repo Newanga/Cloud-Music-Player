@@ -13,7 +13,7 @@
 
             $pw = md5($pw);
 
-            $query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$un' AND password='password'");
+            $query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$un' AND password='$pw'");
 
             if(mysqli_num_rows($query) == 1) {
                 return true;
@@ -24,12 +24,12 @@
             }
         }
 
-        public function register($un, $fn, $ln, $em, $em0, $pw, $pw0) {
+        public function register($un, $fn, $ln, $em, $em2, $pw, $pw2) {
             $this->validateUsername($un);
             $this->validateFirstName($fn);
             $this->validateLastName($ln);
-            $this->validateEmails($em, $em0);
-            $this->validatePasswords($pw, $pw0);
+            $this->validateEmails($em, $em2);
+            $this->validatePasswords($pw, $pw2);
 
             if(empty($this->errorArray) == true) {
                 // will put on database
@@ -50,9 +50,9 @@
 
         private function insertUserDetails($un, $fn, $ln, $em,  $pw) {
             $encryptedPw = md5($pw); 
-            $profilePicture = "Assets\Images\Profile-Pictures\RDL.png";
+            $profilePic = "assets/images/profile-pics/head_emerald.png";
             $date = date("Y-m-d");
-            echo "INSERT INTO users VALUES ('', '$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePicture'";
+     
             $result = mysqli_query($this->con, "INSERT INTO users VALUES ('', '$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePicture')");
             return $result;
         }
@@ -74,7 +74,7 @@
         
         private function validateFirstName($fn) {
             if(strlen($fn) > 25 || strlen($fn) < 2) {
-                array_push($this->errorArray, Constants::$firstnameCharacters);
+                array_push($this->errorArray, Constants::$firstNameCharacters);
                 return;
             }
             
@@ -82,15 +82,15 @@
         
         private function validateLastName($ln) {
             if(strlen($ln) > 25 || strlen($ln) < 2) {
-                array_push($this->errorArray, Constants::$lastnameCharacters);
+                array_push($this->errorArray, Constants::$lastNameCharacters);
                 return;
             }
 
         }
         
-        private function validateEmails($em, $em0) {
-            if($em != $em0) {
-                array_push($this->errorArray, Constants::$emailsDontMatch);
+        private function validateEmails($em, $em2) {
+            if($em != $em2) {
+                array_push($this->errorArray, Constants::$emailsDoNotMatch);
                 return;
             }
             
@@ -107,19 +107,19 @@
             
         }
         
-        private function validatePasswords($pw, $pw0) {
-            if($pw != $pw0) {
-                array_push($this->errorArray, Constants::$passwordsDontMatch);
+        private function validatePasswords($pw, $pw2) {
+            if($pw != $pw2) {
+                array_push($this->errorArray, Constants::$passwordsDoNoMatch);
                 return;
             }
             
             if(preg_match('/[^A-Za-z0-9]/', $pw)) {
-                array_push($this->errorArray, Constants::$passwordCapitalNumbers);
+                array_push($this->errorArray, Constants: $passwordNotAlphanumeric);
                 return;
             }
             // from Capital letters to simple letters and 0 to 9
             
-            if(strlen($pw) > 30 || strlen($pw0) < 5) {
+            if(strlen($pw) > 30 || strlen($pw) < 5) {
                 array_push($this->errorArray, Constants::$passwordCharacters);
                 return;
             }
