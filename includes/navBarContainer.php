@@ -7,7 +7,7 @@
             <div class="group">
                 <div class="navItem">
                     <a href="search.php" class="navItemLink">Search
-                    <img src="assets/images/icons/Search.png" class="logo" alt="Search">
+                    <img src="assets/images/icons/search.png" class="icon" alt="Search">
                     </a>
                 </div>
             </div>
@@ -15,15 +15,15 @@
             <div class="group">
 
                 <div class="navItem">
-                    <a href="Browse.php" class="navItemLink">Browse</a>
+                    <a href="browse.php" class="navItemLink">Browse</a>
                 </div>
 
                 <div class="navItem">
-                    <a href="Your-Music.php" class="navItemLink">Your Music</a>
+                    <a href="yourMusic.php" class="navItemLink">Your Music</a>
                 </div>
 
                 <div class="navItem">
-                    <a href="Profile.php" class="navItemLink">Redux Dreams Lab</a>
+                    <a href="profile.php" class="navItemLink">Redux Dreams Lab</a>
                 </div>
 
             </div>
