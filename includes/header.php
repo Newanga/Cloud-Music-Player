@@ -1,15 +1,24 @@
 <?php
 include("includes/config.php");
-include("includes/classes/artist.php");
-include("includes/classes/album.php");
-include("includes/classes/song.php");
+include("includes/classes/Artist.php");
+include("includes/classes/Album.php");
+include("includes/classes/Song.php");
 
 //session_destroy(); LOGOUT
+
+if(isset($_SESSION['userLoggedIn'])) {
+	$userLoggedIn = $_SESSION['userLoggedIn'];
+}
+else {
+	header("Location: register.php");
+}
+
 ?>
+
 
 <html>
 <head>
-<title>Welcome to Spotify</title>
+<title>Welcome to your cloud music player!</title>
 
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

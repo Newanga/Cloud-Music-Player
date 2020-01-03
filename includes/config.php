@@ -1,4 +1,5 @@
 <?php
+    //Start memory dump to send all data at once to server
     ob_start();
     session_start();
 

@@ -24,6 +24,7 @@
             }
         }
 
+        //Validation errors in respective field
         public function register($un, $fn, $ln, $em, $em2, $pw, $pw2) {
             $this->validateUsername($un);
             $this->validateFirstName($fn);
@@ -32,7 +33,7 @@
             $this->validatePasswords($pw, $pw2);
 
             if(empty($this->errorArray) == true) {
-                // will put on database
+                // //Insert into db
                 return $this->insertUserDetails($un, $fn, $ln, $em,  $pw);
             }
             else {
@@ -53,17 +54,17 @@
             $profilePic = "assets/images/profile-pics/head_emerald.png";
             $date = date("Y-m-d");
      
-            $result = mysqli_query($this->con, "INSERT INTO users VALUES ('', '$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePicture')");
+            $result = mysqli_query($this->con, "INSERT INTO users VALUES ('', '$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')");
             return $result;
         }
 
         private function validateUsername($un) {
-            
+            //check length
             if(strlen($un) > 25 || strlen($un) < 5) {
                 array_push($this->errorArray, Constants::$usernameCharacters);
                 return;
             }
-
+            //Check whether username already in database
             $checkUsernameQuery = mysqli_query($this->con, "SELECT username FROM users WHERE username= '$un'");
             if(mysqli_num_rows($checkUsernameQuery) != 0) {
                 array_push($this->errorArray, Constants::$usernameTaken);
@@ -73,6 +74,7 @@
         }
         
         private function validateFirstName($fn) {
+            //check length
             if(strlen($fn) > 25 || strlen($fn) < 2) {
                 array_push($this->errorArray, Constants::$firstNameCharacters);
                 return;
@@ -81,6 +83,7 @@
         }
         
         private function validateLastName($ln) {
+            //check length
             if(strlen($ln) > 25 || strlen($ln) < 2) {
                 array_push($this->errorArray, Constants::$lastNameCharacters);
                 return;
@@ -89,16 +92,18 @@
         }
         
         private function validateEmails($em, $em2) {
+            //check em1 vs em2
             if($em != $em2) {
                 array_push($this->errorArray, Constants::$emailsDoNotMatch);
                 return;
             }
-            
+
+            //check email format(using PHP built in function)
             if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
                 array_push($this->errorArray, Constants::$emailInvalid);
                 return;
             }
-
+            //Check if email already in database
             $checkEmailQuery = mysqli_query($this->con, "SELECT email FROM users WHERE email= '$em'");
             if(mysqli_num_rows($checkEmailQuery) != 0) {
                 array_push($this->errorArray, Constants::$emailTaken);
@@ -108,21 +113,25 @@
         }
         
         private function validatePasswords($pw, $pw2) {
-            if($pw != $pw2) {
-                array_push($this->errorArray, Constants::$passwordsDoNoMatch);
-                return;
+			//Check for password equality
+			if($pw != $pw2) {
+				array_push($this->errorArray, Constants::$passwordsDoNoMatch);
+				return;
             }
             
-            if(preg_match('/[^A-Za-z0-9]/', $pw)) {
-                array_push($this->errorArray, Constants: $passwordNotAlphanumeric);
-                return;
-            }
-            // from Capital letters to simple letters and 0 to 9
-            
-            if(strlen($pw) > 30 || strlen($pw) < 5) {
-                array_push($this->errorArray, Constants::$passwordCharacters);
-                return;
-            }
-        }
-    }
+            //Check for password strength
+			if(preg_match('/[^A-Za-z0-9]/', $pw)) {
+				array_push($this->errorArray, Constants::$passwordNotAlphanumeric);
+				return;
+			}
+            //check length
+			if(strlen($pw) > 30 || strlen($pw) < 5) {
+				array_push($this->errorArray, Constants::$passwordCharacters);
+				return;
+			}
+
+		}
+
+
+	}
 ?>
