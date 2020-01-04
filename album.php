@@ -1,4 +1,4 @@
-<?php include("includes/header.php"); 
+<?php include("includes/includedFiles.php"); 
 
 if(isset($_GET['id'])) {
 	$albumId = $_GET['id'];
@@ -26,10 +26,10 @@ $artist = $album->getArtist();
 
 </div>
 
+
 <div class="tracklistContainer">
 	<ul class="tracklist">
 		
-
 		<?php
 		$songIdArray = $album->getSongIds();
 
@@ -45,6 +45,7 @@ $artist = $album->getArtist();
 						<span class='trackNumber'>$i</span>
 					</div>
 
+
 					<div class='trackInfo'>
 						<span class='trackName'>" . $albumSong->getTitle() . "</span>
 						<span class='artistName'>" . $albumArtist->getName() . "</span>
@@ -57,6 +58,7 @@ $artist = $album->getArtist();
 					<div class='trackDuration'>
 						<span class='duration'>" . $albumSong->getDuration() . "</span>
 					</div>
+
 
 				</li>";
 
@@ -72,5 +74,3 @@ $artist = $album->getArtist();
 
 	</ul>
 </div>
-
-<?php include("includes/footer.php"); ?>

@@ -8,6 +8,7 @@ include("includes/classes/Song.php");
 
 if(isset($_SESSION['userLoggedIn'])) {
 	$userLoggedIn = $_SESSION['userLoggedIn'];
+	echo "<script>userLoggedIn = '$userLoggedIn';</script>";
 }
 else {
 	header("Location: register.php");
@@ -15,24 +16,24 @@ else {
 
 ?>
 
-
 <html>
 <head>
-<title>Welcome to your cloud music player!</title>
+	<title>Welcome to your cloud music player!</title>
 
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="assets/js/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="assets/js/script.js"></script>
 </head>
 
 <body>
 
-    <div id="mainContainer">
+	<div id="mainContainer">
 
-    <div id="topContainer">
+		<div id="topContainer">
 
-        <?php include("includes/navBarContainer.php"); ?>
+			<?php include("includes/navBarContainer.php"); ?>
 
-        <div id="mainViewContainer">
+			<div id="mainViewContainer">
 
-            <div id="mainContent">
+				<div id="mainContent">

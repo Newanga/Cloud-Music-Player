@@ -1,13 +1,11 @@
 <?php 
 
 function sanitizeFormPassword($inputText) {
-	//Remove html or other tags if present in password
 	$inputText = strip_tags($inputText);
 	return $inputText;
 }
 
 function sanitizeFormUsername($inputText) {
-	//Remove html string..prevent manipulation of databse
 	$inputText = strip_tags($inputText);
 	$inputText = str_replace(" ", "", $inputText);
 	return $inputText;
@@ -16,7 +14,6 @@ function sanitizeFormUsername($inputText) {
 function sanitizeFormString($inputText) {
 	$inputText = strip_tags($inputText);
 	$inputText = str_replace(" ", "", $inputText);
-	//All char -->lower case -->first char upper case
 	$inputText = ucfirst(strtolower($inputText));
 	return $inputText;
 }
@@ -32,7 +29,6 @@ if(isset($_POST['registerButton'])) {
 	$password = sanitizeFormPassword($_POST['password']);
 	$password2 = sanitizeFormPassword($_POST['password2']);
 
-	//check arrary and return true or false
 	$wasSuccessful = $account->register($username, $firstName, $lastName, $email, $email2, $password, $password2);
 
 	if($wasSuccessful == true) {
