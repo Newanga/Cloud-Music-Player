@@ -7,15 +7,16 @@ var currentIndex = 0;
 var repeat = false;
 var shuffle = false;
 var userLoggedIn;
-
+var timer;
 function openPage(url) {
 
-	if(url.indexOf("?") == -1) {
+	if(timer != null) {
+		clearTimeout(timer);
+	}	if(url.indexOf("?") == -1) {
 		url = url + "?";
 	}
 
 	var encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
-	console.log(encodedUrl);
 	$("#mainContent").load(encodedUrl);
 	$("body").scrollTop(0);
 	history.pushState(null, null, url);
@@ -45,6 +46,9 @@ function updateVolumeProgressBar(audio) {
 	$(".volumeBar .progress").css("width", volume + "%");
 }
 
+function playFirstSong(){
+  setTrack(tempPlaylist[0],tempPlaylist,true);
+}
 function Audio() {
 
 	this.currentlyPlaying;
