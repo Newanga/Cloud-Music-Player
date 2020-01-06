@@ -22,6 +22,28 @@ function openPage(url) {
 	history.pushState(null, null, url);
 }
 
+//calling the playlist function
+function createPlaylist() {
+	console.log(userLoggedIn);
+	var popup = prompt("Please enter the name of your playlist");
+
+	if(popup != null) {
+
+		$.post("includes/handlers/ajax/createPlaylist.php", { name: popup, username: userLoggedIn })
+		.done(function(error) {
+
+			if(error != "") {
+				alert(error);
+				return;
+			}
+
+			//do some indication when ajax returns
+			openPage("yourMusic.php");
+		});
+
+	}
+
+}
 
 function formatTime(seconds) {
 	var time = Math.round(seconds);
