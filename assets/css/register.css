@@ -6,16 +6,16 @@ body {
     /*removing borders*/
 }
 
-#background {
+/* #background {
     background-color: #000;
-    background-image: url(../Images/blue-bg.jpg);
+    background-image: url(../Images/);
     background-position: center;
     background-size: cover;
     display: table;
     height: 100%;
     width: 100%;
-    /*putting a background image*/
-}
+    putting a background image
+} */
 
 #loginContainer * {
     color: #ffffff;
