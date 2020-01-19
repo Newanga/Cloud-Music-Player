@@ -52,7 +52,6 @@
 		private function insertUserDetails($un, $fn, $ln, $em, $pw) {
 			$encryptedPw = md5($pw);
 			$date = date("Y-m-d");
-
 			$result = mysqli_query($this->con, "INSERT INTO users VALUES ('', '$un', '$fn', '$ln', '$em', '$encryptedPw', '$date')");
 
 			return $result;

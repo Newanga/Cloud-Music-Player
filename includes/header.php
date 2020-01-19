@@ -20,7 +20,7 @@ else {
 
 <html>
 <head>
-	<title>Welcome to your cloud music player!</title>
+	<title>cloud music player</title>
 
 	<link rel="stylesheet" type="text/css" href="assets/css/commonStyles.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/playingbar.css">
@@ -33,7 +33,7 @@ else {
 	<link rel="stylesheet" type="text/css" href="assets/css/updateUserDetailsPage.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/searchPage.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/artistPage.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/yourmusicPage.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/yourPlaylistsPage.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	

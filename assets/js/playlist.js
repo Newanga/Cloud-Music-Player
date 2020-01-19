@@ -18,7 +18,6 @@ function removeFromPlaylist(button, playlistId) {
 
 //calling playlist create function
 function createPlaylist() {
-	console.log(userLoggedIn);
 	var popup = prompt("Please enter the name of your playlist");
 
 	if(popup != null) {
@@ -32,7 +31,7 @@ function createPlaylist() {
 			}
 
 			//do something when ajax returns
-			openPage("yourMusic.php");
+			openPage("yourPlaylists.php");
 		});
 
 	}
@@ -54,7 +53,7 @@ function deletePlaylist(playlistId) {
 			}
 
 			//do something when ajax returns
-			openPage("yourMusic.php");
+			openPage("yourPlaylists.php");
 		});
 
 
