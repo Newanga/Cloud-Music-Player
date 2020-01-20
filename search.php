@@ -56,7 +56,7 @@ $(function() {
 
 		$i = 1;
 		while($row = mysqli_fetch_array($songsQuery)) {
-
+			
 			if($i > 15) {
 				break;
 			}
